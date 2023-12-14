@@ -1,2 +1,19 @@
-<h1>Admin::GameArticles#index</h1>
-<p>Find me in app/views/admin/game_articles/index.html.erb</p>
+<h1>作品一覧</h1>
+<%= link_to "新規投稿", new_admin_game_article_path %>
+<table>
+  <thead>
+    <tr>
+      <th>作品ID</th>
+      <th>作品名</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @game_articles.each do |game_article| %>
+      <tr>
+        <td><%= game_article.id %></td>
+        <td><%= link_to admin_game_article_path(game_article.id) do %><%= game_article.name %><% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

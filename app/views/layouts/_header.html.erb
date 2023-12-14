@@ -1,6 +1,37 @@
 <% if user_signed_in? %>
     <li>
+      <%= link_to "アバウト", homes_about_path %>
+    </li>
+    <li>
+      <%= link_to "マイページ", users_show_path %>
+    </li>
+    <li>
+      <%= link_to "作品一覧", game_works_index_path %>
+    </li>
+    <li>
+      <%= link_to "作品記事一覧", game_articles_index_path %>
+    </li>
+    <li>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    </li>
+  <% elsif admin_signed_in? %>
+    <li>
+      <%= link_to "作品一覧", admin_game_works_index_path %>
+    </li>
+    <li>
+      <%= link_to "作品記事一覧", admin_game_articles_path %>
+    </li>
+    <li>
+      <%= link_to "会員一覧", admin_users_index_path %>
+    </li>
+    <li>
+      <%= link_to "ジャンル一覧", admin_genres_index_path %>
+    </li>
+    <li>
+      <%= link_to "お問い合わせ", admin_inquiries_index_path %>
+    </li>
+    <li>
+      <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
     </li>
   <% else %>
     <li>
