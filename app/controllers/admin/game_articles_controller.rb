@@ -3,7 +3,7 @@ class Admin::GameArticlesController < ApplicationController
   before_action :set_game_article, only: %i[show edit update]
   
   def new
-    @game_articles = GameArticle.new
+    @game_article = GameArticle.new
   end
   
   def create
@@ -11,7 +11,8 @@ class Admin::GameArticlesController < ApplicationController
     if @game_article.save
       redirect_to admin_game_article_path(@game_article)
     else
-      render :show
+      Rails.logger.info(@game_article.errors.full_messages)
+      render :new
     end
   end
 
@@ -24,11 +25,12 @@ class Admin::GameArticlesController < ApplicationController
   end
 
   def edit
+    @game_article = GameArticle.find(params[:id])
   end
   
   def update
-    if @game_articles.update(game_articles_params)
-      redirect_to admin_game_article_path(@game_articles)
+    if @game_article.update(game_articles_params)
+      redirect_to admin_game_article_path(@game_article)
     else
       render :edit
     end
@@ -37,11 +39,11 @@ class Admin::GameArticlesController < ApplicationController
   private
   
   def set_game_article
-    @game_article = Game_article.find(params[:id])
+    @game_article = GameArticle.find(params[:id])
   end
   
   def game_articles_params
-    params.require(:game_article).permit(:title, :introduction, :get_game_article_image)
+    params.require(:game_article).permit(:title, :introduction, :game_article_image)
   end
   
 end

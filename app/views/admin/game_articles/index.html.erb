@@ -1,10 +1,10 @@
-<h1>作品一覧</h1>
+<h1>記事一覧</h1>
 <%= link_to "新規投稿", new_admin_game_article_path %>
 <table>
   <thead>
     <tr>
-      <th>作品ID</th>
-      <th>作品名</th>
+      <th>記事ID</th>
+      <th>記事名</th>
     </tr>
   </thead>
   
@@ -12,7 +12,7 @@
     <% @game_articles.each do |game_article| %>
       <tr>
         <td><%= game_article.id %></td>
-        <td><%= link_to admin_game_article_path(game_article.id) do %><%= game_article.name %><% end %></td>
+        <td><%= link_to admin_game_article_path(game_article.id) do %><%= game_article.title %><% end %></td>
       </tr>
     <% end %>
   </tbody>

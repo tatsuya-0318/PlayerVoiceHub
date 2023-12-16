@@ -4,14 +4,22 @@ class GameWork < ApplicationRecord
   belongs_to :genre
   belongs_to :platform_genre
   
-  has_one_attached :image
+  has_one_attached :game_work_image
   
-  def get_image
-    unless image.attached?
-      file_path = Rails.root.join('app/assets/images/no_image.jpg')
-      image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+  def get_game_work_image(width, height)
+    if game_work_image.attached?
+      game_work_image.variant(resize_to_limit: [width, height]).processed
+    else
+      # 画像がアタッチされていない場合の代替処理。例えば、
+      # プレースホルダー画像のURLを返すか、または何も表示しない
+      ActionController::Base.helpers.asset_path('no_image.jpg')
     end
-    image
+  end
+  
+  with_options presence: true do
+   validates :title
+   validates :introduction
+   validates :game_work_image, presence: true
   end
 
 end

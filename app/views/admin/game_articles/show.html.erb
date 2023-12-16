@@ -1,6 +1,5 @@
 <h1>ゲーム記事詳細画面</h1>
 
-
 <%= image_tag @game_article.get_game_article_image(200,100) %>
 
 <div>タイトル</div>
@@ -10,5 +9,6 @@
 <div>記事詳細説明</div>
 
 <%= @game_article.introduction %>
+
 
 <%= link_to "編集する", edit_admin_game_article_path(@game_article) %>

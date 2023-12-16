@@ -24,14 +24,12 @@ Rails.application.routes.draw do
     get 'users/edit'
     get 'reviews/index'
     get 'reviews/show'
-    get 'platform_genres/index'
-    get 'platform_genres/edit'
-    get 'genres/index'
-    get 'genres/edit'
-    get 'game_works/new'
-    get 'game_works/index'
-    get 'game_works/show'
-    get 'game_works/edit'
+    
+    resources :platform_genres, only: [:new, :create, :index, :edit, :update]
+    
+    resources :genres, only: [:new, :create, :index, :edit, :update]
+
+    resources :game_works, only: [:new, :create, :index, :show, :edit, :update]
   end
   
   

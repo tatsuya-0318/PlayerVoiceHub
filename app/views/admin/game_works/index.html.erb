@@ -1,2 +1,24 @@
-<h1>Admin::GameWorks#index</h1>
-<p>Find me in app/views/admin/game_works/index.html.erb</p>
+<h1>ゲーム作品一覧</h1>
+<%= link_to "新規投稿", new_admin_game_work_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>作品ID</th>
+      <th>作品名</th>
+      <th>ジャンル</th>
+      <th>プラットフォーム</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @game_works.each do |game_work| %>
+      <tr>
+        <td><%= game_work.id %></td>
+        <td><%= link_to admin_game_work_path(game_work.id) do %><%= game_work.title %><% end %></td>
+        <td><%= game_work.genre.name %></td>
+        <td><%= game_work.platform_genre.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

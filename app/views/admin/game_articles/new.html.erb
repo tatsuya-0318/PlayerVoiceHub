@@ -1,6 +1,7 @@
 <h1>ゲーム記事新規投稿</h1>
 
-<%= form_with model: @game_articles, url: admin_game_articles_path, local:true do |f| %>
+
+<%= form_with model: @game_article, url: admin_game_articles_path, local:true, multipart: true do |f| %>
 
   <%= f.label "記事名" %>
   <%= f.text_field :title %>
@@ -9,7 +10,7 @@
   <%= f.text_area :introduction, :size => "40x8" %>
   
   <%= f.label "記事作品画像" %>
-  <%= f.file_field :get_game_article_image, placeholder: "記事作品画像", accept: "image/*" %>
+  <%= f.file_field :game_article_image, accept: "image/*" %>
 
   <%= f.submit "新規登録" %>
   

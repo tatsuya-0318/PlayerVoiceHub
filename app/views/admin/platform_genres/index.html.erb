@@ -1,2 +1,29 @@
-<h1>Admin::PlatformGenres#index</h1>
-<p>Find me in app/views/admin/platform_genres/index.html.erb</p>
+<h1>プラットフォームジャンル一覧・追加</h1>
+
+
+<%= form_with model: @platform_genre, url: admin_platform_genres_path do |f| %>
+
+  <%= f.label "プラットホームジャンル登録" %>
+  <%= f.text_field :name %>
+
+  <%= f.submit "新規登録" %>
+
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        プラットホームジャンル
+      </th>
+    </tr>
+  </thead>
+  <% @platform_genres.each do |platform_genre| %>
+    <tr>
+      <td><%= platform_genre.name %></td>
+      <td><%= link_to "編集する", edit_admin_platform_genre_path(platform_genre.id) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "ジャンル一覧・追加", admin_genres_path %>
