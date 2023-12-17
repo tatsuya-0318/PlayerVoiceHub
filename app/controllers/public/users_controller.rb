@@ -16,6 +16,14 @@ class Public::UsersController < ApplicationController
     end
   end
   
+  def withdraw
+    @user = current_user
+    if @user.update(is_deleted: true)
+      sign_out(@user)
+       redirect_to root_path
+    end
+  end
+  
   private
 
   def users_params
