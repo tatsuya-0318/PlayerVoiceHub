@@ -50,12 +50,13 @@ Rails.application.routes.draw do
       get 'inquiries/new'
       get 'inquiries/index'
       get 'inquiries/complete'
-      get 'game_articles/index'
-      get 'game_articles/show'
+      
+      resources :game_articles, only: [:index, :show]
+      
       get 'reviews/index'
       get 'reviews/show'
-      get 'game_works/index'
-      get 'game_works/show'
+      
+      resources :game_works, only: [:index, :show]
     
   end
 

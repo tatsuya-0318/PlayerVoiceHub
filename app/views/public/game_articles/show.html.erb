@@ -1,2 +1,6 @@
-<h1>Public::GameArticles#show</h1>
-<p>Find me in app/views/public/game_articles/show.html.erb</p>
+
+<%= image_tag @game_article.get_game_article_image(400,300) %>
+
+<%= @game_article.title %>
+
+<%= @game_article.introduction %>

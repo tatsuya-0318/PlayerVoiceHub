@@ -1,2 +1,22 @@
-<h1>Admin::GameWorks#show</h1>
-<p>Find me in app/views/admin/game_works/show.html.erb</p>
+<h1>ゲーム作品詳細画面</h1>
+
+<%= image_tag @game_work.get_game_work_image(200,100) %>
+
+<div>タイトル</div>
+
+<%= @game_work.title %>
+
+<div>作品詳細説明</div>
+
+<%= @game_work.introduction %>
+
+<div>ジャンル</div>
+
+<%= @game_work.genre.name %>
+
+<div>プラットホームジャンル</div>
+
+<%= @game_work.platform_genre.name %>
+
+
+<%= link_to "編集する", edit_admin_game_work_path(@game_work) %>

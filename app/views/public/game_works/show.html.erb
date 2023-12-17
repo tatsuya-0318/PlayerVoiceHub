@@ -1,2 +1,8 @@
-<h1>Public::GameWorks#show</h1>
-<p>Find me in app/views/public/game_works/show.html.erb</p>
+
+<%= image_tag @game_work.get_game_work_image(400,300) %>
+
+<%= @game_work.title %>
+
+<%= @game_work.introduction %>
+
+<%= link_to "他のレビューを確認する＞", reviews_index_path %>

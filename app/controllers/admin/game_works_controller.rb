@@ -5,14 +5,18 @@ class Admin::GameWorksController < ApplicationController
   
   def new
     @game_work = GameWork.new
+    @genres = Genre.all
+    @platform_genres = PlatformGenre.all
   end
   
   def create
-    @game_work = GameWork.new(game_articles_params)
+    @game_work = GameWork.new(game_works_params)
     if @game_work.save
       redirect_to admin_game_work_path(@game_work)
     else
       Rails.logger.info(@game_work.errors.full_messages)
+      @genres = Genre.all
+      @platform_genres = PlatformGenre.all
       render :new
     end
   end
@@ -27,10 +31,12 @@ class Admin::GameWorksController < ApplicationController
 
   def edit
     @game_work = GameWork.find(params[:id])
+    @genres = Genre.all
+    @platform_genres = PlatformGenre.all
   end
   
   def update
-    if @game_work.update(game_articles_params)
+    if @game_work.update(game_works_params)
       redirect_to admin_game_work_path(@game_work)
     else
       render :edit
@@ -44,7 +50,7 @@ class Admin::GameWorksController < ApplicationController
   end
   
   def game_works_params
-    params.require(:game_work).permit(:title, :introduction, :game_work_image)
+    params.require(:game_work).permit(:title, :introduction, :game_work_image, :genre_id, :platform_genre_id)
   end
   
 end

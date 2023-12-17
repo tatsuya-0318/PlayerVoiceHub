@@ -1,2 +1,10 @@
-<h1>Public::GameArticles#index</h1>
-<p>Find me in app/views/public/game_articles/index.html.erb</p>
+<h1>ゲーム記事一覧</h1>
+
+  <% @game_articles.each do |game_article| %>
+    <%= link_to game_article_path(game_article) do %>
+      <%= image_tag game_article.get_game_article_image(400,200) %>
+      <%= game_article.title %>
+    <% end %>
+  <% end %>
+  
+  <%= paginate @game_articles %>

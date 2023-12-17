@@ -1,2 +1,24 @@
-<h1>Admin::GameWorks#edit</h1>
-<p>Find me in app/views/admin/game_works/edit.html.erb</p>
+<h1>ゲーム作品編集画面</h1>
+
+<%= form_with model: @game_work, url: admin_game_work_path(@game_work.id), method: :patch, local:true do |f| %>
+
+  <%= f.label "作品名" %>
+  <%= f.text_field :title %>
+  
+  <%= f.label "作品詳細説明" %>
+  <%= f.text_area :introduction, :size => "40x8" %>
+  
+  <%= f.label :"ジャンル" %>
+  <%= f.select :genre_id, options_for_select(@genres.map { |genre| [genre.name, genre.id] }),
+                { include_blank: "-- 選択してください --" }, {required: true, class: "form-control", id: "genre-select" } %>
+
+  <%= f.label :"プラットフォームジャンル" %>
+  <%= f.select :platform_genre_id, options_for_select(@platform_genres.map { |platform_genre| [platform_genre.name, platform_genre.id] }),
+                { include_blank: "-- 選択してください --" }, {required: true, class: "form-control", id: "genre-select" } %>
+
+  
+  <%= f.label "作品画像" %> 
+  <%= f.file_field :game_work_image, accept: "image/*" %>
+  
+  <%= f.submit "変更内容を保存" %>
+<% end %>
