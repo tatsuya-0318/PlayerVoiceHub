@@ -19,11 +19,10 @@ Rails.application.routes.draw do
     get 'requests/show'
     get 'inquiries/index'
     get 'inquiries/show'
-    get 'users/index'
-    get 'users/show'
-    get 'users/edit'
-    get 'reviews/index'
-    get 'reviews/show'
+    
+    resources :users, only: [:index, :show, :edit, :update]
+    
+    resources :reviews, only: [:index, :show, :create, :update, :destroy]
     
     resources :platform_genres, only: [:new, :create, :index, :edit, :update]
     
