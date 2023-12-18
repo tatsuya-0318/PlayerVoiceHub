@@ -1,2 +1,12 @@
-<h1>Public::Reviews#show</h1>
-<p>Find me in app/views/public/reviews/show.html.erb</p>
+
+
+  <%= @review.title %>
+
+  <%= @review.content %>
+  
+  <%= render "public/reviews/static_rate", review: @review %>
+  <% if @review.user == current_user %>
+      <%= link_to "削除", game_work_review_path(@review.game_work, @review), method: :delete %>
+  <% end %>
+  
+  <%= link_to "このレビューにコメントを送る。", game_work_review_comments_path(game_work_id: @review.game_work.id, review_id: @review.id) %>

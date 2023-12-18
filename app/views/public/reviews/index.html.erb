@@ -1,2 +1,14 @@
-<h1>Public::Reviews#index</h1>
-<p>Find me in app/views/public/reviews/index.html.erb</p>
+<h1>レビュー一覧</h1>
+
+
+<% @reviews.each do |review| %>
+  <%= link_to review_path(review) do %>
+    <%= image_tag  review.user.get_profile_image(100,100) %>
+    <%= review.title %>
+  <% end %>
+  <%= review.content %>
+  <%= render "public/reviews/static_rate", review: review %>
+  <% if review.user == current_user %>
+      <%= link_to "削除", game_work_review_path(review.game_work, review), method: :delete %>
+  <% end %>
+<% end %>

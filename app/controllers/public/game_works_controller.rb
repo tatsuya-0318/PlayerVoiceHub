@@ -7,6 +7,7 @@ class Public::GameWorksController < ApplicationController
 
   def show
     @game_work = GameWork.find(params[:id])
+    @review = Review.new
   end
   
 end

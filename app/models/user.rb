@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :report_inquiries
   has_many :notifications
   has_many :comments
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :game_work_bookmarks
   
   enum sex: { male: 0, female: 1 }

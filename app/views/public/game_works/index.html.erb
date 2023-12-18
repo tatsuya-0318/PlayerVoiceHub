@@ -5,6 +5,7 @@
       <%= image_tag game_work.get_game_work_image(400,200) %>
       <%= game_work.title %>
     <% end %>
+    <p><%= link_to "#{game_work.reviews.count} レビュー", reviews_path(game_work_id: game_work.id) %></p>
   <% end %>
   
   <%= paginate @game_works %>

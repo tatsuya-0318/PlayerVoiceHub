@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_12_14_084250) do
+ActiveRecord::Schema.define(version: 2023_12_18_080016) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -60,6 +60,15 @@ ActiveRecord::Schema.define(version: 2023_12_14_084250) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["review_id"], name: "index_comments_on_review_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "email", null: false
+    t.string "subject", null: false
+    t.text "message", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "game_article_bookmarks", force: :cascade do |t|
@@ -142,6 +151,7 @@ ActiveRecord::Schema.define(version: 2023_12_14_084250) do
     t.integer "game_work_id", null: false
     t.float "star", null: false
     t.text "content", null: false
+    t.string "title", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["game_work_id"], name: "index_reviews_on_game_work_id"
