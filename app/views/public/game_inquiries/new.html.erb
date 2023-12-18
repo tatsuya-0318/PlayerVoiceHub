@@ -1,0 +1,36 @@
+
+<h2>今あなたが気になっているゲームを教えてください！</h2>
+
+<h2>知りたいゲーム、気になっているゲーム、<br>
+ぜひこちらのフォームから投稿してください！<br>
+こちらの方で調査したのちレビュー投稿記事、ゲーム記事を発行を行います！<br>
+サイトをよくするためにも何卒フォームの方投稿お願いいたします！</h2>
+
+<h2>※「プラットフォーム」「制作会社」がわからないのでしたら<br>
+「わからない」とご記載しても大丈夫です。</h2>
+
+<%= form_with model: @game_inquiry, url: game_inquiries_path, method: :post do |f| %>
+
+  <p>作品名</p>
+  <%= f.text_field :title %>
+  
+  <p>プラットフォーム</p>
+  <%= f.text_field :platform %>
+  
+  <p>制作会社</p>
+  <%= f.text_field :production_company %>
+  
+  <p>何が気になっているのか教えてください！</p>
+  <%= f.text_area :introduction, :size => "40x8" %>
+  
+  <%= f.submit "投稿" %>
+
+<% end %>
+
+<% if @game_inquiry.errors.any? %>
+  <ul>
+    <% @game_inquiry.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>

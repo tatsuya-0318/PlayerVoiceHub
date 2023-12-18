@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_12_18_080016) do
+ActiveRecord::Schema.define(version: 2023_12_18_102750) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 2023_12_18_080016) do
     t.string "platform", null: false
     t.string "production_company", null: false
     t.text "introduction", null: false
+    t.string "title", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_game_inquiries_on_user_id"
@@ -158,6 +159,14 @@ ActiveRecord::Schema.define(version: 2023_12_18_080016) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
+  create_table "sub_comments", force: :cascade do |t|
+    t.integer "comment_id", null: false
+    t.text "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_id"], name: "index_sub_comments_on_comment_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -189,4 +198,5 @@ ActiveRecord::Schema.define(version: 2023_12_18_080016) do
   add_foreign_key "report_inquiries", "users"
   add_foreign_key "reviews", "game_works"
   add_foreign_key "reviews", "users"
+  add_foreign_key "sub_comments", "comments"
 end

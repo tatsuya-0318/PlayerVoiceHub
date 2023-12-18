@@ -22,6 +22,7 @@ class Public::ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
+    @new_comments = Comment.new
   end
   
   def destroy

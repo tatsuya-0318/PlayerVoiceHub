@@ -14,11 +14,10 @@ Rails.application.routes.draw do
     root to: "homes#top"
     
     resources :game_articles, only: [:new, :create, :index, :show, :edit, :update]
-    
-    get 'requests/index'
-    get 'requests/show'
-    get 'inquiries/index'
-    get 'inquiries/show'
+
+    resources :report_inquiries, only: [:index, :show]
+
+    resources :game_inquiries, only: [:index, :show]
     
     resources :users, only: [:index, :show, :edit, :update]
     
@@ -38,18 +37,22 @@ Rails.application.routes.draw do
       
       get '/users/information/edit' => 'users#edit',as: 'users_edit'
       patch '/users/information' => 'users#update',as: 'users_update'
-      get '/users/my_page' => 'users#show',as:'users_show'
+      get '/users/my_page' => 'users#show',as: 'users_show'
       get '/users/check' => 'users#check'
       patch 'users/withdraw' => 'users#withdraw'
       post 'users/sign_out' => 'sessions#destroy'
       
       get 'searches/index'
-      get 'requests/new'
-      get 'requests/complete'
-      get 'inquiries/new'
-      get 'inquiries/index'
-      get 'inquiries/complete'
-      
+
+      resources :report_inquiries, only: [:new, :create] do
+        get 'report_inquiries/complete', to: 'report_inquiries#complete'
+      end
+
+        get 'game_inquiries/choice' => 'game_inquiries#choice'
+      resources :game_inquiries, only: [:new, :index, :create] do
+        get 'game_inquiries/complete', to: 'game_inquiries#complete'
+      end
+
       
       resources :game_articles, only: [:index, :show]
       

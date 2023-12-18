@@ -5,6 +5,7 @@ class CreateGameInquiries < ActiveRecord::Migration[6.1]
       t.string :platform, null: false
       t.string :production_company, null: false
       t.text :introduction, null: false
+      t.string :title, null: false
 
       t.timestamps
     end
