@@ -16,6 +16,14 @@ class GameWork < ApplicationRecord
     end
   end
   
+  def self.looks(search, word)
+    if search == "partial_match"
+      GameWork.where("title LIKE?","%#{word}%")
+    else
+      GameWork.all
+    end
+  end
+  
   with_options presence: true do
    validates :title
    validates :introduction

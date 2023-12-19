@@ -30,7 +30,6 @@ Rails.application.routes.draw do
     resources :game_works, only: [:new, :create, :index, :show, :edit, :update]
   end
   
-  
   scope module: :public do
       root to: "homes#top"
       get 'homes/about'
@@ -42,11 +41,11 @@ Rails.application.routes.draw do
       patch 'users/withdraw' => 'users#withdraw'
       post 'users/sign_out' => 'sessions#destroy'
       
-      get 'searches/index'
-
       resources :report_inquiries, only: [:new, :create] do
         get 'report_inquiries/complete', to: 'report_inquiries#complete'
       end
+      
+    get "searches" => "searches#search"
 
         get 'game_inquiries/choice' => 'game_inquiries#choice'
       resources :game_inquiries, only: [:new, :index, :create] do
@@ -63,7 +62,6 @@ Rails.application.routes.draw do
           resources :comments, only: [:index, :create, :destroy]
         end
       end
-    
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

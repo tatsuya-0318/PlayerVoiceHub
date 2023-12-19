@@ -27,6 +27,14 @@ class GameArticle < ApplicationRecord
     end
   end
   
+  def self.looks(search, word)
+    if search == "partial_match"
+      GameArticle.where("title LIKE?","%#{word}%")
+    else
+      GameArticle.all
+    end
+  end
+  
   with_options presence: true do
    validates :title
    validates :introduction
