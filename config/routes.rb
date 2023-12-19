@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  
   devise_for :users,skip: [:passwords],controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -45,7 +46,11 @@ Rails.application.routes.draw do
         get 'report_inquiries/complete', to: 'report_inquiries#complete'
       end
       
-    get "searches" => "searches#search"
+      get "searches" => "searches#search"
+      
+      resources :genres, only: [:show]
+      
+      resources :platformgenres, only: [:show]
 
         get 'game_inquiries/choice' => 'game_inquiries#choice'
       resources :game_inquiries, only: [:new, :index, :create] do

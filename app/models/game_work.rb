@@ -6,6 +6,8 @@ class GameWork < ApplicationRecord
   
   has_one_attached :game_work_image
   
+  scope :with_genre, -> (genre_id) { genre_id.present? ? where(genre_id: genre_id) : all }
+  
   def get_game_work_image(width, height)
     if game_work_image.attached?
       game_work_image.variant(resize_to_limit: [width, height]).processed
