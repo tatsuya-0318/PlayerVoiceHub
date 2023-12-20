@@ -62,15 +62,6 @@ ActiveRecord::Schema.define(version: 2023_12_18_102750) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "contacts", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "email", null: false
-    t.string "subject", null: false
-    t.text "message", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "game_article_bookmarks", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "game_article_id", null: false
