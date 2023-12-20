@@ -8,4 +8,7 @@ class Public::HomesController < ApplicationController
 
   def about
   end
+  
+  def coice
+  end
 end

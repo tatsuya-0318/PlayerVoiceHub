@@ -21,4 +21,10 @@
   </tr>
 </tbody>
 
-<%= link_to "編集する", users_edit_path %>
+<%= link_to "編集する", edit_users_path(@user) %>
+
+<% unless @user.guest_user? %>
+  <div class="row">
+    <%= link_to "", edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
+  </div>
+<% end %>
