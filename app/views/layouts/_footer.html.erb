@@ -1,3 +1,10 @@
-<h5>PlayerVoiceHub</h5>
-
-<%= link_to "お問い合わせ", game_inquiries_choice_path %>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <h5>PlayerVoiceHub</h5>
+  </div>
+  <div class="row d-flex justify-content-around">
+    <% if user_signed_in? %>
+      <%= link_to "お問い合わせ", game_inquiries_choice_path %>
+    <% end %>
+  </div>
+</div>

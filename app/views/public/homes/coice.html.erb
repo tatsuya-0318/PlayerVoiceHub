@@ -1,14 +1,21 @@
-<div>
+<div class="container">
   <div class="row">
-    <%= link_to "ゲストログイン（閲覧用）", public_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
-  </div>
-  <div class="row">
-    <%= link_to "ログイン",new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
-  </div>
-  <div class="row">
-    <%= link_to "新規登録",new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
-  </div>
-  <div class="row">
-    <%= link_to "運営用", new_admin_session_path %>
+    <div class="col-6 pr-5">
+      <%= image_tag 'ログイン確認画像.png', size: '900x600' %>
+    </div>
+    <div class="col-6 my-auto">
+      <div class="row d-flex flex-row-reverse">
+        <%= link_to "ゲストログイン（閲覧用）", public_guest_sign_in_path, class: "btn btn-secondary btn-sm mb-5 mt-5 sign_in", method: :post %>
+      </div>
+      <div class="row d-flex flex-row-reverse">
+        <%= link_to "ログイン",new_user_session_path, class: "btn btn-info btn-sm mb-5 mt-5  sign_in" %>
+      </div>
+      <div class="row d-flex flex-row-reverse">
+        <%= link_to "新規登録",new_user_registration_path, class: "btn btn-success btn-sm mb-5 mt-5 sign_up" %>
+      </div>
+      <div class="row d-flex flex-row-reverse">
+        <%= link_to "運営用", new_admin_session_path, class: "btn btn-warning mb-5 mt-5" %>
+      </div>
+    </div>
   </div>
 </div>
