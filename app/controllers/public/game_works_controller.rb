@@ -1,19 +1,15 @@
 class Public::GameWorksController < ApplicationController
   
   def index
-    @game_work_s = GameWork.page(params[:page]).per(5)
-    Rails.logger.debug "Genre ID: #{params[:genre_id]}"
+
     if params[:genre_id].present?
       @game_works = GameWork.where(genre_id: params[:genre_id])
-    else
-      @game_works = GameWork.all
-    end
-    Rails.logger.debug "PlatformGenre ID: #{params[:platform_genre_id]}"
-    if params[:platform_genre_id].present?
+    elsif params[:platform_genre_id].present?
       @game_works = GameWork.where(platform_genre_id: params[:platform_genre_id])
     else
       @game_works = GameWork.all
     end
+    @game_works = @game_works.page(params[:page]).per(5)
   end
 
   def show

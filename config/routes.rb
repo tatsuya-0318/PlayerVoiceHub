@@ -43,10 +43,10 @@ Rails.application.routes.draw do
       get 'homes/cioce' => 'homes#coice'
       
       get '/users/:id/edit', to: 'users#edit',as: 'edit_users'
+      patch 'users/withdraw' => 'users#withdraw'
       patch '/users/:id', to: 'users#update',as: 'update_users'
       get '/users/my_page' => 'users#show',as: 'users_show'
       get '/users/check' => 'users#check'
-      patch 'users/withdraw' => 'users#withdraw'
       post 'users/sign_out' => 'sessions#destroy'
       
       resources :report_inquiries, only: [:new, :create] do

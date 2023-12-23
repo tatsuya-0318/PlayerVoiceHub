@@ -7,6 +7,8 @@ class Public::HomesController < ApplicationController
   end
 
   def about
+    @genres = Genre.all
+    @platform_genres = PlatformGenre.all
   end
   
   def coice
