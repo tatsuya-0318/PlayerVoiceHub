@@ -1,12 +1,28 @@
-
-
-  <%= @review.title %>
-
-  <%= @review.content %>
-  
-  <%= render "public/reviews/static_rate", review: @review %>
-  <% if @review.user == current_user %>
-      <%= link_to "削除", game_work_review_path(@review.game_work, @review), method: :delete %>
-  <% end %>
-  
-  <%= link_to "このレビューにコメントを送る。", game_work_review_comments_path(game_work_id: @review.game_work.id, review_id: @review.id) %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'layouts/sideber' %>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <span class="d-flex flex-row">
+          <div class="col-5">
+            <%= image_tag  @review.user.get_profile_image(300,300) %>
+          </div>
+          <div class="col-7 review-show-text">
+            <p>タイトル</p>
+            <%= @review.title %>
+            <p class="mt-5">本文</p>
+            <%= @review.content %>
+            <p class="mt-5">評価</p>
+            <%= render "public/reviews/static_rate", review: @review %>
+            <% if @review.user == current_user %>
+              <%= link_to "削除", game_work_review_path(@review.game_work, @review), method: :delete, class:"btn font-bold mt-5", style: "background-color: #ff3838;" %>
+            <% end %>
+            <%#= link_to "このレビューにコメントを送る。", game_work_review_comments_path(game_work_id: @review.game_work.id, review_id: @review.id) %>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

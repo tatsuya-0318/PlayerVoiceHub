@@ -1,50 +1,92 @@
-
-<%= image_tag @game_work.get_game_work_image(400,300) %>
-
-<%= @game_work.title %>
-
-<%= @game_work.introduction %>
-
-<div>
-  <p>レビュー件数：<%= @game_work.reviews.count %></p>
-  <% @game_work.reviews.first(1).each do |review| %>
-    <p><%= image_tag review.user.get_profile_image(100,100) %></p>
-    <%= review.user.name %>
-    <%= review.created_at.strftime('%Y/%m/%d') %><%= review.content %>
-  <% end %>
-</div>
-<div>
-  <%= form_with model: [@game_work, @review], url: game_work_reviews_path(@game_work), local: true do |f| %>
-    <%= f.text_field :title %>
-    <%= f.text_area :content, rows: '5', placeholder: "レビューをここに" %>
-    <% if @review.id.nil? %>
-      <div class="form-group" id="star">
-        <%= f.label :star %>
-        <%= f.hidden_field :star, id: :review_star, class: 'form-control' %>
-        <div id="post_raty"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'layouts/sideber' %>
+    </div>
+    <div class="col-md-9">
+      <div class="row m-5">
+        <span class= "d-flex flex-row" >
+          <div class="col-4">
+            <%= image_tag @game_work.get_game_work_image(300,300) %>
+          </div>
+          <div class="col-8 game_work-show-text">
+            <h3><%= @game_work.title %></h3>
+            <p><%= @game_work.introduction %></p>
+          </div>
+        </span>
+            <div class="row mt-5">
+              <% @game_work.reviews.last(1).each do |review| %>
+                <div class="form-row d-flex flex-column">
+                  <p>最新のレビュー投稿</p>
+                  <p><%= image_tag review.user.get_profile_image(100,100) %></p>
+                </div>
+                <div class="form-row d-flex flex-column mt-5">
+                  <p>ユーザー名</p>
+                  <%= review.user.name %>
+                </div>
+                <div class="form-row d-flex flex-column mt-5 ml-5">
+                  <p>レビュータイトル</p>
+                  <%= review.title %>
+                </div>
+                <div class="form-row d-flex flex-column mt-5 ml-5">
+                  <p>投稿日</p>
+                  <%= review.created_at.strftime('%Y/%m/%d') %>
+                </div>
+                <div class="form-row d-flex flex-column mt-5 ml-5">
+                  <p>評価</p>
+                  <%= render "public/reviews/static_rate", review: review %>
+                </div>
+              <% end %>
+              <p>レビュー件数：<%= @game_work.reviews.count %></p>
+            </div>
+            <div class="row">
+              <span>
+                <%= form_with model: [@game_work, @review], url: game_work_reviews_path(@game_work), local: true do |f| %>
+                  <div class="form-row">
+                    <p>タイトル</p>
+                    <%= f.text_field :title, class: 'form-control' %>
+                  </div>
+                  <div class="form-row">
+                    <p>本文</p>
+                    <div class="col-12">
+                      <%= f.text_area :content, rows: '5', placeholder: "レビューをここに", class: 'form-control' %>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <% if @review.id.nil? %>
+                      <div class="form-group" id="star">
+                        <p>評価</p>
+                        <%= f.label :star %>
+                        <%= f.hidden_field :star, id: :review_star, class: 'form-control' %>
+                        <div id="post_raty"></div>
+                      </div>
+                      <script>
+                        $(document).on('turbolinks:load', function() {
+                          let elem = document.querySelector('#post_raty');
+                          if (elem == null) return;
+                    
+                          elem.innerHTML = ""
+                          let opt = {  
+                            starOn: "<%= asset_path('star-on.png') %>",
+                            starOff: "<%= asset_path('star-off.png') %>",
+                            starHalf: "<%= asset_path('star-half.png') %>",
+                            scoreName: 'review[star]',
+                          };
+                          raty(elem, opt);
+                        });
+                      </script>
+                    <% else %>
+                      <%= render "public/reviews/static_rate", review: review %>
+                    <% end %>
+                  </div>
+                  <div class="form-row">
+                    <%= f.submit "送信する", class: "btn font-bold", style: "background-color: #38ff9c;" %>
+                  </div>
+                <% end %>
+              </span>
+            </div>
       </div>
-      <script>
-        $(document).on('turbolinks:load', function() {
-          let elem = document.querySelector('#post_raty');
-          if (elem == null) return;
-    
-          elem.innerHTML = ""
-          let opt = {  
-            starOn: "<%= asset_path('star-on.png') %>",
-            starOff: "<%= asset_path('star-off.png') %>",
-            starHalf: "<%= asset_path('star-half.png') %>",
-            scoreName: 'review[star]',
-          };
-          raty(elem, opt);
-        });
-      </script>
-    <% else %>
-      <%= render "public/reviews/static_rate", review: review %>
-    <% end %>
-    <%= f.submit "送信する" %>
-  <% end %>
+    </div>
+  </div>
+        <p class="d-flex flex-row-reverse"><%= link_to "合計#{@game_work.reviews.count} 個　レビュー一覧へ", game_work_reviews_path(game_work_id: @game_work.id) %></p>
 </div>
-
- 
-
-<p><%= link_to "合計#{@game_work.reviews.count} 個　レビュー一覧へ", game_work_reviews_path(game_work_id: @game_work.id) %></p>

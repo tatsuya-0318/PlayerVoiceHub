@@ -1,1 +1,105 @@
 @use '~bootstrap/scss/bootstrap';
+
+
+main {
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(178deg, rgba(25, 25, 112, 1) 58%, rgba(65, 105, 225, 1) 90%);
+}
+
+body{
+  font-family: 'arial black', sans-serif;
+  color: #ffff38;
+}
+
+a{
+  text-decoration: none !important;
+  color: #ffff38 !important;
+}
+
+.sign_up-title {
+    padding: 1em 1.5em;
+    margin: 2em 0;
+    background-color:#38ff9c;/*背景色*/
+    color:#000000;/*文字色*/
+}
+.sign_up-title p {
+    margin: 0; 
+    padding: 0;
+}
+
+.log_in-title {
+    padding: 1em 1.5em;
+    margin: 2em 0;
+    background-color:#88ff38;/*背景色*/
+    color:#000000;/*文字色*/
+}
+.log_in-title p {
+    margin: 0; 
+    padding: 0;
+}
+
+.new-game_work-box {
+    position: relative;
+    padding: 1em 1.5em;
+    margin: 2em 0;
+    border: solid 3px #ff3838;/*線*/
+    border-radius: 8px;/*角の丸み*/
+    color: #ffff38;/*文字色*/
+}
+.new-game_work-box.new-game_work_title{
+    position: absolute;
+    display: inline-block;
+    top: -13px;
+    left: 10px;
+    padding: 0 10px;
+    line-height: 1;
+    font-size: 1.3em;/*タイトル文字サイズ*/
+    background: #ffffff;/*タイトル文字背景色*/
+    color: #c71585;/*タイトル文字色*/
+    font-weight: bold;
+}
+.new-game_work-box p {
+    margin: 0; 
+    padding: 0;
+}
+
+.new-game_article-box {
+    position: relative;
+    padding: 1em 1.5em;
+    margin: 2em 0;
+    border: solid 3px #ff3838;/*線*/
+    border-radius: 8px;/*角の丸み*/
+    color: #ffff38;/*文字色*/
+}
+.new-game_article-box.new-game_article_title{
+    position: absolute;
+    display: inline-block;
+    top: -13px;
+    left: 10px;
+    padding: 0 10px;
+    line-height: 1;
+    font-size: 1.3em;/*タイトル文字サイズ*/
+    background: #ffffff;/*タイトル文字背景色*/
+    color: #c71585;/*タイトル文字色*/
+    font-weight: bold;
+}
+.new-game_article-box p {
+    margin: 0; 
+    padding: 0;
+}
+
+.user-mypage-table{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 45px;
+}
+
+.review-show-text {
+  margin-left: 100px;
+}
+
+.game_work-show-text{
+  margin-left: 100px;
+}

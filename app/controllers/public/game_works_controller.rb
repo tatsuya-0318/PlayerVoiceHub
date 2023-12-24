@@ -10,11 +10,15 @@ class Public::GameWorksController < ApplicationController
       @game_works = GameWork.all
     end
     @game_works = @game_works.page(params[:page]).per(5)
+    @genres = Genre.all
+    @platform_genres = PlatformGenre.all
   end
 
   def show
     @game_work = GameWork.find(params[:id])
     @review = Review.new
+    @genres = Genre.all
+    @platform_genres = PlatformGenre.all
   end
   
   private

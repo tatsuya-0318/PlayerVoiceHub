@@ -18,11 +18,15 @@ class Public::ReviewsController < ApplicationController
     else
       redirect_to review_path# エラーメッセージを表示または別のページにリダイレクト
     end
+    @genres = Genre.all
+    @platform_genres = PlatformGenre.all
   end
 
   def show
     @review = Review.find(params[:id])
     @new_comments = Comment.new
+    @genres = Genre.all
+    @platform_genres = PlatformGenre.all
   end
   
   def destroy

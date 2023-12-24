@@ -5,8 +5,12 @@
     </div>
     <div class="col-md-9">
       <%= image_tag 'トップ画像.png', size: '850x550' %>
-      <h2 class="mt-3">投稿されたゲーム一覧</h2>
-      
+      <div class="row">
+        <div class="new-game_work-box">
+          <span class="new-game_work_title">CHECK!</span>
+          <h2 class="mt-3 ">投稿されたゲーム一覧</h2>
+        </div>
+      </div>
       <div class="row mr-5 mb-5">
         <% @new_game_works.first(3).each do |game_work| %>
           <div class="col-4 d-flex flex-column m-2">
@@ -19,8 +23,12 @@
           </div>
         <% end %>
       </div>
-      <h2 class="mt-3">最新ゲーム情報一覧</h2>
-      
+      <div class="row">
+        <div class="new-game_article-box">
+          <span class="new-game_article_title">CHECK!</span>
+          <h2 class="mt-3">最新ゲーム情報一覧</h2>
+        </div>
+      </div>
       <div class="row mr-5 mb-5">
         <% @new_game_articles.first(3).each do |game_article| %>
           <div class="col-4 d-flex flex-column m-2">

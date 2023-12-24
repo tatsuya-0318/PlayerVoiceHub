@@ -1,30 +1,41 @@
-<h1>マイページ</h1>
-
-<%= image_tag @user.get_profile_image(100,100) %>
-
-<tbody>
-  <tr>
-    <td>ユーザー名</td>
-    <td><%= @user.name %></td>
-  </tr>
-  <tr>
-    <td>性別</td>
-    <td><%= I18n.t("activerecord.attributes.user.sex.#{@user.sex}") %></td>
-  </tr>
-  <tr>
-    <td>年齢</td>
-    <td><%= @user.age %></td>
-  </tr>
-  <tr>
-    <td>メールアドレス</td>
-    <td><%= @user.email %></td>
-  </tr>
-</tbody>
-
-<%= link_to "編集する", edit_users_path(@user) %>
-
-<% unless @user.guest_user? %>
-  <div class="row">
-    <%= link_to "", edit_users_path(@user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{@user.id}" %>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="row justify-content-center;">
+      <div class="col">
+        <h1 class="ml-5 mb-5">マイページ</h1>
+        <%= image_tag @user.get_profile_image(300,300) %>
+      </div>
+      <div class="col">
+        <div class="row d-flex justify-content-center mt-5 ml-5">
+          <table class="user-mypage-table">
+            <thead></thead>
+            <tbody>
+              <tr class="form-row mb-5">
+                <td class="col-7 form-group">ユーザー名</td>
+                <td class="col-5 form-group"><%= @user.name %></td>
+              </tr>
+              <tr class="form-row mb-5">
+                <td class="col-7 form-group">性別</td>
+                <td class="col-5 form-group"><%= I18n.t("activerecord.attributes.user.sex.#{@user.sex}") %></td>
+              </tr>
+              <tr class="form-row mb-5">
+                <td class="col-7 form-group">年齢</td>
+                <td class="col-5 form-group"><%= @user.age %></td>
+              </tr>
+              <tr class="form-row mb-5">
+                <td class="col-7 form-group">メールアドレス</td>
+                <td class="col-5 form-group"><%= @user.email %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
-<% end %>
+  <div class="d-flex flex-row-reverse">
+    <%= link_to "編集する", edit_users_path(@user), class:"btn font-bold", style: "background-color: #0b0b33;" %>
+  </div>
+</div>
+    
+    
+    

@@ -13,15 +13,14 @@
   </head>
 
   <body>
-    <header>
+    <header style="background-color: #191970; color: #191970;">
       <%= render "layouts/header" %>
     </header>
-    
-    <%= yield %>
-    <footer>
-      <main style="background-color: #4169e1; color: #191970;">
-        <%= render "layouts/footer" %>
-      </main>
+    <main>
+      <%= yield %>
+    </main>
+    <footer style="background-color: #4169e1; color: #191970;">
+      <%= render "layouts/footer" %>
     </footer>
   </body>
 </html>

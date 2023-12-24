@@ -1,14 +1,29 @@
-<h1>レビュー一覧</h1>
-
-
-<% @reviews.each do |review| %>
-  <%= link_to review_path(review) do %>
-    <%= image_tag  review.user.get_profile_image(100,100) %>
-    <%= review.title %>
-  <% end %>
-  <%= review.content %>
-  <%= render "public/reviews/static_rate", review: review %>
-  <% if review.user == current_user %>
-      <%= link_to "削除", game_work_review_path(review.game_work, review), method: :delete %>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'layouts/sideber' %>
+    </div>
+    <div class="col-md-9">
+      <div class="row m-5">
+        <h1>レビュー一覧</h1>
+      </div>
+      <div class="row">
+        <% @reviews.each do |review| %>
+          <div class="col-8 d-flex flex-column m-5">
+            <%= link_to review_path(review) do %>
+              <%= image_tag  review.user.get_profile_image(100,100) %>
+              <%= review.title %>
+            <% end %>
+            <%= review.content %>
+            <%= render "public/reviews/static_rate", review: review %>
+            <% if review.user == current_user %>
+              <div class="col-4">
+                <%= link_to "削除", game_work_review_path(review.game_work, review), method: :delete, class:"btn font-bold", style: "background-color: #ff3838;" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
