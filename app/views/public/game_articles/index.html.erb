@@ -1,10 +1,23 @@
-<h1>ゲーム記事一覧</h1>
-
-  <% @game_articles.each do |game_article| %>
-    <%= link_to game_article_path(game_article) do %>
-      <%= image_tag game_article.get_game_article_image(400,200) %>
-      <%= game_article.title %>
-    <% end %>
-  <% end %>
-  
-  <%= paginate @game_articles %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'layouts/sideber' %>
+    </div>
+    <div class="col-md-9">
+      <div class="row m-5">
+        <h1>ゲーム記事一覧</h1>
+      </div>
+      <div class="row">
+        <% @game_articles.each do |game_article| %>
+          <div class="col-12 d-flex flex-column m-2">
+            <%= link_to game_article_path(game_article) do %>
+              <%= image_tag game_article.get_game_article_image(400,200) %>
+              <%= game_article.title %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+        <%= paginate @game_articles %>
+    </div>
+  </div>
+</div>

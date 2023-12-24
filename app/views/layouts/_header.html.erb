@@ -5,27 +5,27 @@
         <div style="border: 2px solid #3838ff; padding: 2px; border-radius: 5px; text-align: center;">
           <div style="background-color: #3838ff; border-radius: 5px;">
             
-            <li><%= link_to "アバウト", homes_about_path, class: "btn font-bold ", style: " color: #b4bfe0; " %></li>
+            <i class="fa-solid fa-hand-peace"><%= link_to "アバウト", homes_about_path, class: "btn font-bold ", style: " color: #b4bfe0; " %></i>
           </div>
         </div>
         <div style="border: 2px solid #3838ff; padding: 2px; border-radius: 5px; text-align: center;">
           <div style="background-color: #3838ff; border-radius: 5px;">
-            <li><%= link_to "マイページ", users_show_path, class: "btn font-bold ", style: " color: #b4bfe0;" %></li>
+            <i class="fa-regular fa-circle-user"><%= link_to "マイページ", users_show_path, class: "btn font-bold ", style: " color: #b4bfe0;" %></i>
           </div>
         </div>
         <div style="border: 2px solid #3838ff; padding: 2px; border-radius: 5px; text-align: center;">
           <div style="background-color: #3838ff; border-radius: 5px;">
-            <li><%= link_to "作品一覧", game_works_path, class: "btn font-bold ", style: " color: #b4bfe0;" %></li>
+            <i class="fa-solid fa-gamepad"><%= link_to "作品一覧", game_works_path, class: "btn font-bold ", style: " color: #b4bfe0;" %></i>
           </div>
         </div>
         <div style="border: 2px solid #3838ff; padding: 2px; border-radius: 5px; text-align: center;">
           <div style="background-color: #3838ff; border-radius: 5px;">
-            <li><%= link_to "作品記事一覧", game_articles_path, class: "btn font-bold ", style: " color: #b4bfe0;" %></li>
+            <i class="fa-solid fa-clipboard"><%= link_to "作品記事一覧", game_articles_path, class: "btn font-bold ", style: " color: #b4bfe0;" %></i>
           </div>
         </div>
         <div style="border: 2px solid #3838ff; padding: 2px; border-radius: 5px; text-align: center;">
           <div style="background-color: #3838ff; border-radius: 5px;">
-            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn font-bold ", style: " color: #b4bfe0;" %></li>
+            <i class="fa-solid fa-right-to-bracket"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn font-bold ", style: " color: #b4bfe0;" %></i>
           </div>
         </div>
         <% elsif admin_signed_in? %>

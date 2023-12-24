@@ -1,6 +1,22 @@
-
-<%= image_tag @game_article.get_game_article_image(400,300) %>
-
-<%= @game_article.title %>
-
-<%= @game_article.introduction %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'layouts/sideber' %>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <span class="d-flex flex-row">
+          <div class="col-5">
+            <%= image_tag @game_article.get_game_article_image(400,300) %>
+          </div>
+          <div class="col-7 game_article-show-text">
+            <p class="mt-5 ml-5">タイトル</p>
+            <div class="ml-5"><%= @game_article.title %></div>
+            <p class="mt-5 ml-5">本文</p>
+            <div class="ml-5"><%= @game_article.introduction %></div>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

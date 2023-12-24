@@ -10,5 +10,7 @@ class Public::SearchesController < ApplicationController
     else
       @game_articles = GameArticle.looks(params[:search], params[:word])
     end
+    @genres = Genre.all
+    @platform_genres = PlatformGenre.all
   end
 end

@@ -1,43 +1,52 @@
-<table>
-  <% if @range == "投稿されたゲーム" %>
-    <h2>"<%= @word %>"と検索した結果一覧</h2>
-    <thead>
-      <tr>
-        <th>image</th>
-        <th>title</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @game_works.each do |game_work| %>
-        <tr>
-          <th>
-            <%= link_to  game_work_path( game_work.id) do %>
-              <%= image_tag game_work.get_game_work_image(50, 50) %>
-              <%= game_work.title %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'layouts/sideber' %>
+    </div>
+    <div class="col-md-9">
+      <table>
+        <% if @range == "投稿されたゲーム" %>
+          <h2>"<%= @word %>"と検索した結果一覧</h2>
+          <thead>
+            <tr>
+              <th>image</th>
+              <th>title</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @game_works.each do |game_work| %>
+              <tr>
+                <th class= "form-row">
+                  <%= link_to  game_work_path( game_work.id), class: "form-group col-12" do %>
+                    <%= image_tag game_work.get_game_work_image(200,200) %>
+                    <%= game_work.title %>
+                  <% end %>
+                </th>
+              </tr>
             <% end %>
-          </th>
-        </tr>
-      <% end %>
-    </tbody>
-  <% else %>
-    <thead>
-        <tr>
-          <th></th>
-          <th>title</th>
-        </tr>
-      <tbody>
-      <h2>"<%= @word %>"と検索した結果一覧</h2>
-      <% @game_articles.each do |game_article| %>
-        <tr>
-          <td>
-            <%= link_to  game_article_path( game_article.id) do %>
-              <%= image_tag  game_article.get_game_article_image(50, 50) %>
+          </tbody>
+        <% else %>
+          <thead>
+              <tr>
+                <th></th>
+                <th>title</th>
+              </tr>
+            <tbody>
+            <h2>"<%= @word %>"と検索した結果一覧</h2>
+            <% @game_articles.each do |game_article| %>
+              <tr>
+                <td>
+                  <%= link_to  game_article_path( game_article.id) do %>
+                    <%= image_tag  game_article.get_game_article_image(200,200) %>
+                  <% end %>
+                </td>
+                <td><%= link_to game_article.title , game_article_path(game_article.id) %></td>
+              </tr>
             <% end %>
-          </td>
-          <td><%= link_to game_article.title , game_article_path(game_article.id) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  <% end %>
-</table>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
