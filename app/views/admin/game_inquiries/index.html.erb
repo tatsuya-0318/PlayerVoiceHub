@@ -1,21 +1,26 @@
-<h1>お客様が載せてほしい作品や情報フォーム一覧</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>作品名</th>
-      <th>プラットフォーム</th>
-      <th>制作会社</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @game_inquiry.each do |f| %>
-      <tr>
-        <td><%= link_to admin_game_inquiry_path(f.id) do %><%= f.title %><% end %></td>
-        <td><%= f.platform %></td>
-        <td><%= f.production_company %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-    <%= link_to "運営に伝えたいこと用フォームはこちらから＞", admin_report_inquiries_path %>
+<div class="container">
+  <div class="row">
+    <div class="row text-center">
+      <h1>お客様が載せてほしい作品や情報フォーム一覧</h1>
+    </div>
+    <table class="table m-5d-flex justify-content-center", style="color: #ffff38;">
+      <thead>
+        <tr>
+          <th>作品名</th>
+          <th>プラットフォーム</th>
+          <th>制作会社</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @game_inquiry.each do |f| %>
+          <tr>
+            <td><%= link_to admin_game_inquiry_path(f.id) do %><%= f.title %><% end %></td>
+            <td><%= f.platform %></td>
+            <td><%= f.production_company %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to "運営に伝えたいこと用フォームはこちらから＞", admin_report_inquiries_path, class:"btn font-bold", style: "background-color: #0b0b33;" %>
+  </div>
+</div>

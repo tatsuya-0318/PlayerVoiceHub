@@ -1,13 +1,48 @@
-<h1>お問い合わせ詳細</h1>
-
-<p>作品名</p>
-<%= @game_inquiry.title %>
-
-<p>プラットフォーム</p>
-<%= @game_inquiry.platform %>
-
-<p>制作会社</p>
-<%= @game_inquiry.production_company %>
-
-<p>本文</p>
-<%= @game_inquiry.introduction %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+      <div class="row m-5">
+        <span class= "d-flex flex-row" >
+          <div class="col-12">
+            <div class="row mb-5">
+              <h1>お問い合わせ詳細</h1>
+            </div>
+            <div class="form-row">
+              <div class="col-5 form-group ml-5">
+                <p>作品名</p>
+              </div>
+              <div class="col-5 form-group">
+                <%= @game_inquiry.title %>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-5 form-group ml-5">
+                <p>プラットフォーム</p>
+              </div>
+              <div class="col-5 form-group">
+                <%= @game_inquiry.platform %>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-5 form-group ml-5">
+                <p>制作会社</p>
+              </div>
+              <div class="col-5 form-group">
+                <%= @game_inquiry.production_company %>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-5 form-group ml-5">
+                <p>本文</p>
+              </div>
+              <div class="col-5 form-group">
+                <%= @game_inquiry.introduction %>
+              </div>
+            </div>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

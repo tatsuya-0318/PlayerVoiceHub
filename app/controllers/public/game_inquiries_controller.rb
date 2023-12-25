@@ -13,10 +13,6 @@ class Public::GameInquiriesController < ApplicationController
     end
   end
 
-  def index
-    
-  end
-
   def complete
     @game_inquiry = GameInquiry.find_by(id: params[:game_inquiry_id])
   end

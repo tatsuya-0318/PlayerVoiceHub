@@ -1,18 +1,24 @@
-<h1>運営に伝えたいことフォーム一覧</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>内容</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @report_inquiry.each do |report_inquiry| %>
-      <tr>
-        <td><%= report_inquiry.id %></td>
-        <td><%= link_to admin_report_inquiry_path(report_inquiry.id) do %><%= report_inquiry.content %><% end %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="row text-center">
+      <h1>運営に伝えたいことフォーム一覧</h1>
+    </div>
+      <table class="table m-5d-flex justify-content-center", style="color: #ffff38;">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @report_inquiry.each do |report_inquiry| %>
+            <tr>
+              <td><%= report_inquiry.id %></td>
+              <td><%= link_to admin_report_inquiry_path(report_inquiry.id) do %><%= report_inquiry.content %><% end %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= link_to "お客様が載せてほしい作品や情報フォーム一覧＞", admin_game_inquiries_path, class:"btn font-bold", style: "background-color: #0b0b33;" %>
+    </div>
+</div>

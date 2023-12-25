@@ -1,5 +1,24 @@
-<h1>お問い合わせ詳細</h1>
-
-<p>フォーム内容</p>
-
-<%= @report_inquiry.content %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+      <div class="row m-5">
+        <span class= "d-flex flex-row" >
+          <div class="col-12">
+            <div class="row mb-5">
+              <h1>お問い合わせ詳細</h1>
+            </div>
+            <div class="form-row">
+              <div class="col-5 form-group ml-5">
+                <p>フォーム内容</p>
+              </div>
+              <div class="col-5 form-group">
+                <%= @report_inquiry.content %>
+              </div>
+            </div>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
