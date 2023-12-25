@@ -39,8 +39,8 @@
               <% end %>
               <p>レビュー件数：<%= @game_work.reviews.count %></p>
             </div>
-            <div class="row">
-              <span>
+            <div class="row mb-5">
+              <span class="mb-5">
                 <%= form_with model: [@game_work, @review], url: game_work_reviews_path(@game_work), local: true do |f| %>
                   <div class="form-row">
                     <p>タイトル</p>

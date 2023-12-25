@@ -6,7 +6,6 @@ class Public::ReportInquiriesController < ApplicationController
   def create
     @report_inquiry = current_user.report_inquiries.build(report_inquiries_params)
     if @report_inquiry.save
-      session[:report_inquiry_details] = @report_inquiry.attributes
       redirect_to report_inquiry_report_inquiries_complete_path(@report_inquiry)
     else
       @report_inquiry.errors.full_messages
@@ -15,8 +14,7 @@ class Public::ReportInquiriesController < ApplicationController
   end
 
   def complete
-    @report_inquiry = session[:report_inquiry_details]
-    session.delete(:report_inquiry_details)
+    @report_inquiry = ReportInquiry.find_by(id: params[:report_inquiry_id])
   end
   
   private

@@ -1,6 +1,15 @@
-
-<h1>ご協力ありがとうございました！</h1>
-
-<%= @report_inquiry["content"] %>
-
-<p>こちらの内容で受付しました。</p>
+<div class="container">
+  <div class="row d-flex flex-column">
+    <div class="row d-flex justify-content-center mb-5">
+      <h1>ご協力ありがとうございました！</h1>
+    </div>
+    <div class="row d-flex justify-content-center mb-5">
+      <div class="form-row d-flex flex-column text-center mr-5">
+        <div class="col-12 form-group ml-5">
+          <%= @report_inquiry["content"] %>
+          <div class="mt-5"><p>こちらの内容で受付しました。</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
