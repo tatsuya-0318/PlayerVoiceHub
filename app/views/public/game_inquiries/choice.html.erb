@@ -1,7 +1,15 @@
-<h1>お問い合わせフォーム</h1>
-
-<h3>今あなたが気になっているゲームを教えてください</h3>
-<%= link_to "こちら", new_game_inquiry_path %>
-
-<h3>運営に伝えたいこと</h3>
-<%= link_to "こちら", new_report_inquiry_path %>
+<div class="container">
+  <div class="row d-flex flex-column">
+    <div class="row d-flex justify-content-center mb-5">
+      <h1>お問い合わせフォーム</h1>
+    </div>
+    <div class="row d-flex flex-column text-center mt-5 mb-5">
+      <h3>今あなたが気になっているゲームを教えてください</h3>
+      <div class="mt-5"><%= link_to "こちら", new_game_inquiry_path, class:"btn font-bold", style: "background-color: #27b3b3;" %></div>
+    </div>
+    <div class="row d-flex flex-column text-center mt-5 mb-5">
+      <h3>運営に伝えたいこと</h3>
+      <div class="mt-5"><%= link_to "こちら", new_report_inquiry_path, class:"btn font-bold", style: "background-color: #27b3b3;" %></div>
+    </div>
+  </div>
+</div>

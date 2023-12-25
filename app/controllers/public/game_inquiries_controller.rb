@@ -6,7 +6,6 @@ class Public::GameInquiriesController < ApplicationController
   def create
     @game_inquiry = current_user.game_inquiries.build(game_inquiries_params)
     if @game_inquiry.save
-      session[:game_inquiry_details] = @game_inquiry.attributes
       redirect_to game_inquiry_game_inquiries_complete_path(@game_inquiry)
     else
       @game_inquiry.errors.full_messages
@@ -19,8 +18,7 @@ class Public::GameInquiriesController < ApplicationController
   end
 
   def complete
-    @game_inquiry = session[:game_inquiry_details]
-    session.delete(:game_inquiry_details)
+    @game_inquiry = GameInquiry.find_by(id: params[:game_inquiry_id])
   end
   
   def choice

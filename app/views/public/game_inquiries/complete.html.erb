@@ -1,8 +1,46 @@
-<h1>ご協力ありがとうございました！</h1>
+<div class="container">
+  <div class="row d-flex flex-column">
+    <div class="row d-flex justify-content-center mb-5">
+      <h1>ご協力ありがとうございました！</h1>
+    </div>
+    <div class="row">
+      <div class="form-row">
+        <div class="col-6 form-group ml-5">
+          <p>作品名</p>
+        </div>
+        <div class="col-6 form-group">
+          <%= @game_inquiry['title'] %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-5 form-group ml-5">
+          <p>プラットフォーム</p>
+        </div>
+        <div class="col-5 form-group">
+          <%= @game_inquiry['platform'] %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-5 form-group ml-5">
+          <p>制作会社</p>
+        </div>
+        <div class="col-5 form-group">
+          <%= @game_inquiry['production_company'] %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-5 form-group ml-5">
+          <p>何が気になっているのか教えてください！</p>
+        </div>
+        <div class="col-5 form-group">
+          <%= @game_inquiry['introduction'] %>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center mb-5">
+        <p>こちらの内容で受付しました。</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= @game_inquiry['title'] %>
-<%= @game_inquiry['platform'] %>
-<%= @game_inquiry['production_company'] %>
-<%= @game_inquiry['introduction'] %>
-
-<p>こちらの内容で受付しました。</p>
+    

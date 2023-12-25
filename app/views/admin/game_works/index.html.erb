@@ -1,24 +1,33 @@
-<h1>ゲーム作品一覧</h1>
-<%= link_to "新規投稿", new_admin_game_work_path %>
-
-<table>
-  <thead>
-    <tr>
-      <th>作品ID</th>
-      <th>作品名</th>
-      <th>ジャンル</th>
-      <th>プラットフォーム</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <% @game_works.each do |game_work| %>
-      <tr>
-        <td><%= game_work.id %></td>
-        <td><%= link_to admin_game_work_path(game_work.id) do %><%= game_work.title %><% end %></td>
-        <td><%= game_work.genre.name %></td>
-        <td><%= game_work.platform_genre.name %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="row text-center">
+      <h1>ゲーム作品一覧</h1>
+    </div>
+    <div class="d-flex flex-row-reverse ml-5 mb-5">
+      <%= link_to "新規投稿", new_admin_game_work_path, class:"btn font-bold", style: "background-color: #ff3838;" %>
+    </div>
+      
+      
+      <table class="table m-5d-flex justify-content-center", style="color: #ffff38;">
+        <thead>
+          <tr>
+            <th>作品ID</th>
+            <th>作品名</th>
+            <th>ジャンル</th>
+            <th>プラットフォーム</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <% @game_works.each do |game_work| %>
+            <tr>
+              <td><%= game_work.id %></td>
+              <td><%= link_to admin_game_work_path(game_work.id) do %><%= game_work.title %><% end %></td>
+              <td><%= game_work.genre.name %></td>
+              <td><%= game_work.platform_genre.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+</div>

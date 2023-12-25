@@ -1,22 +1,21 @@
-<h1>ゲーム作品詳細画面</h1>
-
-<%= image_tag @game_work.get_game_work_image(200,100) %>
-
-<div>タイトル</div>
-
-<%= @game_work.title %>
-
-<div>作品詳細説明</div>
-
-<%= @game_work.introduction %>
-
-<div>ジャンル</div>
-
-<%= @game_work.genre.name %>
-
-<div>プラットホームジャンル</div>
-
-<%= @game_work.platform_genre.name %>
-
-
-<%= link_to "編集する", edit_admin_game_work_path(@game_work) %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+      <div class="row m-5">
+        <span class= "d-flex flex-row" >
+          <div class="col-4">
+            <%= image_tag @game_work.get_game_work_image(300,300) %>
+          </div>
+          <div class="col-8 game_work-show-text">
+            <h3><%= @game_work.title %></h3>
+            <p><%= @game_work.introduction %></p>
+            <p><%= @game_work.genre.name %></p>
+            <p><%= @game_work.platform_genre.name %></p>
+            <%= link_to "編集する", edit_admin_game_work_path(@game_work), class:"btn font-bold", style: "background-color: #0b0b33;" %>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

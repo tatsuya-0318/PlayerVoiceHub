@@ -1,25 +1,56 @@
-<h1>ゲーム作品新規投稿</h1>
-
-
-<%= form_with model: @game_work, url: admin_game_works_path, local:true do |f| %>
-
-  <%= f.label "作品名" %>
-  <%= f.text_field :title %>
-  
-  <%= f.label "作品詳細説明" %>
-  <%= f.text_area :introduction, :size => "40x8" %>
-  
-  <%= f.label :"ジャンル" %>
-  <%= f.select :genre_id, options_for_select(@genres.map { |genre| [genre.name, genre.id] }),
-                { include_blank: "-- 選択してください --" }, {required: true, class: "form-control", id: "genre-select" } %>
-
-  <%= f.label :"プラットフォームジャンル" %>
-  <%= f.select :platform_genre_id, options_for_select(@platform_genres.map { |platform_genre| [platform_genre.name, platform_genre.id] }),
-                { include_blank: "-- 選択してください --" }, {required: true, class: "form-control", id: "genre-select" } %>
-  
-  <%= f.label "作品画像" %>
-  <%= f.file_field :game_work_image, accept: "image/*" %>
-
-  <%= f.submit "新規登録" %>
-  
-<% end %>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="row text-center mb-5">
+      <h1>ゲーム作品新規投稿</h1>
+    </div>
+  </div>
+    <%= form_with model: @game_work, url: admin_game_works_path, local:true do |f| %>
+      <div class="form-row">
+        <div class="col-5 form-group ml-5">
+          <%= f.label "作品名" %>
+        </div>
+        <div class="col-5 form-group">
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-5 form-group ml-5">
+          <%= f.label "作品詳細説明" %>
+        </div>
+        <div class="col-5 form-group">
+          <%= f.text_area :introduction, :size => "40x8", class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-5 form-group ml-5">
+          <%= f.label :"ジャンル" %>
+        </div>
+        <div class="col-5 form-group">
+          <%= f.select :genre_id, options_for_select(@genres.map { |genre| [genre.name, genre.id] }),
+                        { include_blank: "-- 選択してください --" }, {required: true, class: "form-control", id: "genre-select" } %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-5 form-group ml-5">
+          <%= f.label :"プラットフォームジャンル" %>
+        </div>
+        <div class="col-5 form-group">
+          <%= f.select :platform_genre_id, options_for_select(@platform_genres.map { |platform_genre| [platform_genre.name, platform_genre.id] }),
+                        { include_blank: "-- 選択してください --" }, {required: true, class: "form-control", id: "genre-select" } %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-5 form-group ml-5">
+          <%= f.label "作品画像" %>
+        </div>
+        <div class="col-5 form-group">
+          <%= f.file_field :game_work_image, accept: "image/*" %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-5 form-group ml-5">
+          <%= f.submit "新規登録", class: "btn font-bold mr-5", style: "background-color: #38ff9c;" %>
+        </div>
+      </div>
+    <% end %>
+</div>

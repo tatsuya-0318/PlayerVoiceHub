@@ -1,34 +1,71 @@
-<%= @user.name %>さんの会員情報編集
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
 
-  <%= form_with model: [:admin, @user], url: admin_user_path(@user.id), method: :patch do |f| %>
-  
-    <div>会員ID</div>
-    <div><%= @user.id %></div>
+      <h3 class="m-5"><%= @user.name %>さんの会員情報編集</h3>
     
-    <div>ユーザー名</div>
-    <div><%= f.text_field :name %></div>
-  
-    <%= f.radio_button :sex, :male %>
-    <%= f.label :sex, "男性", value: :male %>
-    
-    <%= f.radio_button :sex, :female %>
-    <%= f.label :sex, "女性", value: :female %>
-
-    <div>年齢</div>
-    <div><%= f.text_field :age %></div>
-  
-    <div>メールアドレス</div>
-    <div><%= f.text_field :email %></div>
-
-    <div>会員ステータス</div>
-    <div>
-      <%= f.radio_button :is_deleted, true %>
-      <%= f.label :is_deleted, "退会" %>
-
-      <%= f.radio_button :is_deleted, false %>
-      <%= f.label :is_deleted, "有効" %>
+      <%= form_with model: [:admin, @user], url: admin_user_path(@user.id), method: :patch do |f| %>
+        <div class="form-row">
+          <div class="col-5 form-group ml-5">
+            <div>会員ID</div>
+          </div>
+          <div class="col-5 form-group">
+            <div><%= @user.id %></div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-5 form-group ml-5">
+            <div>ユーザー名</div>
+          </div>
+          <div class="col-5 form-group">
+            <div><%= f.text_field :name, class: "form-control" %></div>
+          </div>
+        </div>
+        <div class="form-row justify-content-center">
+          <div class="col-2 form-group">
+            <%= f.radio_button :sex, :male %>
+            <%= f.label :sex, "男性", value: :male %>
+          </div>
+          <div class="col-2 form-group">
+            <%= f.radio_button :sex, :female %>
+            <%= f.label :sex, "女性", value: :female %>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-5 form-group ml-5">
+            <div>年齢</div>
+          </div>
+          <div class="col-5 form-group">
+            <div><%= f.text_field :age, class: "form-control" %></div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-5 form-group ml-5">
+            <div>メールアドレス</div>
+          </div>
+          <div class="col-5 form-group">
+            <div><%= f.text_field :email, class: "form-control" %></div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-5 form-group ml-5">
+            <div>会員ステータス</div>
+          </div>
+          <div class="col-5 form-group">
+            <div>
+              <%= f.radio_button :is_deleted, true %>
+              <%= f.label :is_deleted, "退会" %>
+        
+              <%= f.radio_button :is_deleted, false %>
+              <%= f.label :is_deleted, "有効" %>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center mr-5 mt-5">
+          <%= f.submit "変更を保存", class: "btn font-bold mr-5", style: "background-color: #38ff9c;" %>
+        </div>
+      <% end %>
     </div>
-    
-    <%= f.submit "変更を保存" %>
-    
-  <% end %>
+  </div>
+</div>

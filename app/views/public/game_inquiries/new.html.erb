@@ -1,36 +1,68 @@
-
-<h2>今あなたが気になっているゲームを教えてください！</h2>
-
-<h2>知りたいゲーム、気になっているゲーム、<br>
-ぜひこちらのフォームから投稿してください！<br>
-こちらの方で調査したのちレビュー投稿記事、ゲーム記事を発行を行います！<br>
-サイトをよくするためにも何卒フォームの方投稿お願いいたします！</h2>
-
-<h2>※「プラットフォーム」「制作会社」がわからないのでしたら<br>
-「わからない」とご記載しても大丈夫です。</h2>
-
-<%= form_with model: @game_inquiry, url: game_inquiries_path, method: :post do |f| %>
-
-  <p>作品名</p>
-  <%= f.text_field :title %>
-  
-  <p>プラットフォーム</p>
-  <%= f.text_field :platform %>
-  
-  <p>制作会社</p>
-  <%= f.text_field :production_company %>
-  
-  <p>何が気になっているのか教えてください！</p>
-  <%= f.text_area :introduction, :size => "40x8" %>
-  
-  <%= f.submit "投稿" %>
-
-<% end %>
-
-<% if @game_inquiry.errors.any? %>
-  <ul>
-    <% @game_inquiry.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+<div class="container">
+  <div class="row d-flex flex-column">
+    <div class="row d-flex justify-content-center">
+      <h2>今あなたが気になっているゲームを教えてください！</h2>
+    </div>
+    
+    <div class="row d-flex justify-content-center text-center mt-5 mb-5">
+      <h2>知りたいゲーム、気になっているゲーム、<br>
+      ぜひこちらのフォームから投稿してください！<br>
+      こちらの方で調査したのちレビュー投稿記事、ゲーム記事を発行を行います！<br>
+      サイトをよくするためにも何卒フォームの方投稿お願いいたします！</h2>
+    </div>
+    
+    <div class="row d-flex justify-content-center text-center mt-5 mb-5">
+       <h2>※「プラットフォーム」「制作会社」がわからないのでしたら<br>
+      「わからない」とご記載しても大丈夫です。</h2>
+    </div>
+   
+    
+    <%= form_with model: @game_inquiry, url: game_inquiries_path, method: :post do |f| %>
+      <div class="form-row">
+        <div class="col-5 form-group ml-5">
+          <p>作品名</p>
+        </div>
+        <div class="col-5 form-group">
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-5 form-group ml-5">
+          <p>プラットフォーム</p>
+        </div>
+        <div class="col-5 form-group">
+          <%= f.text_field :platform, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-5 form-group ml-5">
+          <p>制作会社</p>
+        </div>
+        <div class="col-5 form-group">
+          <%= f.text_field :production_company, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-5 form-group ml-5">
+          <p>何が気になっているのか教えてください！</p>
+        </div>
+        <div class="col-5 form-group">
+          <%= f.text_area :introduction, :size => "40x8", class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-row justify-content-center mt-3 mb-3">
+        <div class="col-5 form-group offset-3">
+          <%= f.submit "投稿", class: "btn font-bold", style: "background-color: #38ff9c;" %>
+        </div>
+      </div>
     <% end %>
-  </ul>
-<% end %>
+    
+    <% if @game_inquiry.errors.any? %>
+      <ul>
+        <% @game_inquiry.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>
