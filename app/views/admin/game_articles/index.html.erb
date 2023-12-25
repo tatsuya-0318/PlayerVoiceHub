@@ -1,19 +1,27 @@
-<h1>記事一覧</h1>
-<%= link_to "新規投稿", new_admin_game_article_path %>
-<table>
-  <thead>
-    <tr>
-      <th>記事ID</th>
-      <th>記事名</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <% @game_articles.each do |game_article| %>
-      <tr>
-        <td><%= game_article.id %></td>
-        <td><%= link_to admin_game_article_path(game_article.id) do %><%= game_article.title %><% end %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="row text-center">
+      <h1>記事一覧</h1>
+    </div>
+    <div class="d-flex flex-row-reverse ml-5 mb-5">
+      <%= link_to "新規投稿", new_admin_game_article_path, class:"btn font-bold", style: "background-color: #ff3838;" %>
+    </div>
+    <table class="table m-5d-flex justify-content-center", style="color: #ffff38;">
+      <thead>
+        <tr>
+          <th>記事ID</th>
+          <th>記事名</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <% @game_articles.each do |game_article| %>
+          <tr>
+            <td><%= game_article.id %></td>
+            <td><%= link_to admin_game_article_path(game_article.id) do %><%= game_article.title %><% end %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

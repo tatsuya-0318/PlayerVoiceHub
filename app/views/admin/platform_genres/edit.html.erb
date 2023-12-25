@@ -1,7 +1,22 @@
-<h1>プラットホームジャンル編集</h1>
-
-<%= form_with model: @platform_genre, url: admin_platform_genre_path,method: :patch do |f| %>
-  <td><%= f.label "ジャンル名" %></td>
-  <td><%= f.text_field :name %></td>
-  <td><%= f.submit "変更を保存" %></td>
-<% end %>
+<div class="container">
+  <div class = "row mt-5">
+    <div class="col-12">
+      <h1>プラットホームジャンル編集</h1>
+    </div>
+  </div>
+  <%= form_with model: @platform_genre, url: admin_platform_genre_path,method: :patch do |f| %>
+    <div class="form-row">
+      <div class="col-5 form-group ml-5">
+        <td><%= f.label "ジャンル名" %></td>
+      </div>
+      <div class="col-5 form-group">
+        <td><%= f.text_field :name, class: "form-control" %></td>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-5 form-group ml-5">
+        <td><%= f.submit "変更を保存", class: "btn font-bold mr-5", style: "background-color: #38ff9c;" %></td>
+      </div>
+    </div>
+  <% end %>
+</div>

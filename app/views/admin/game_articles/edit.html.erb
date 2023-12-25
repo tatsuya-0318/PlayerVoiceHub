@@ -1,15 +1,39 @@
-<h1>ゲーム記事編集画面</h1>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="row text-center mb-5">
+      <h1>ゲーム記事編集画面</h1>
+    </div>
+  </div>
 
-<%= form_with model: @game_article, url: admin_game_article_path(@game_article.id), method: :patch, local:true do |f| %>
-
-  <%= f.label "記事名" %>
-  <%= f.text_field :title %>
-  
-  <%= f.label "記事詳細説明" %>
-  <%= f.text_area :introduction, :size => "40x8" %>
-  
-  <%= f.label "記事作品画像" %>
-  <%= f.file_field :game_article_image, accept: "image/*" %>
-  
-  <%= f.submit "変更内容を保存" %>
-<% end %>
+    <%= form_with model: @game_article, url: admin_game_article_path(@game_article.id), method: :patch, local:true do |f| %>
+      <div class="form-row">
+        <div class="col-5 form-group ml-5">
+          <%= f.label "記事名" %>
+        </div>
+        <div class="col-5 form-group">
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-5 form-group ml-5">
+          <%= f.label "記事詳細説明" %>
+        </div>
+        <div class="col-5 form-group">
+          <%= f.text_area :introduction, :size => "40x8", class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-5 form-group ml-5">
+          <%= f.label "記事作品画像" %>
+        </div>
+        <div class="col-5 form-group">
+          <%= f.file_field :game_article_image, accept: "image/*" %>
+        </div>
+      </div>
+      <div class="form-row d-flex flex-row-reverse">
+        <div class="col-5 form-group ml-5">
+          <%= f.submit "変更内容を保存", class: "btn font-bold mr-5", style: "background-color: #38ff9c;" %>
+        </div>
+      </div>
+    <% end %>
+</div>

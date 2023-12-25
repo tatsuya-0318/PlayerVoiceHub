@@ -1,28 +1,40 @@
-<h1>ジャンル一覧・追加</h1>
-
-<%= form_with model: @genre, url: admin_genres_path do |f| %>
-
-  <%= f.label "ジャンル登録" %>
-  <%= f.text_field :name %>
-
-  <%= f.submit "新規登録" %>
-
-<% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th>
-        ジャンル
-      </th>
-    </tr>
-  </thead>
-  <% @genres.each do |genre| %>
-    <tr>
-      <td><%= genre.name %></td>
-      <td><%= link_to "編集する", edit_admin_genre_path(genre.id) %></td>
-    </tr>
-  <% end %>
-</table>
-
-<%= link_to "プラットフォームジャンル一覧・追加", admin_platform_genres_path %>
+<div class="container">
+  <div class = "row mt-5">
+    <div class="col-12">
+      <h1>ジャンル一覧・追加</h1>
+    </div>
+  </div>
+      <%= form_with model: @genre, url: admin_genres_path do |f| %>
+        <div class="row mx-auto pt-4 align-items-center">
+          <div class = "col-2 ">
+            <%= f.label "ジャンル登録" %>
+          </div>
+          <div class = "col-3">
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+          <div class = "co-3">
+            <%= f.submit "新規登録", class: "btn btn-lg", style: "background-color: #ff3838;" %>
+          </div>
+        </div>
+      <% end %>
+      <table class= "table", style="color: #ffff38;">
+        <thead>
+          <tr>
+            <th>
+              ジャンル
+            </th>
+          </tr>
+        </thead>
+        <% @genres.each do |genre| %>
+          <tr>
+            <td><%= genre.name %></td>
+            <td><%= link_to "編集する", edit_admin_genre_path(genre.id), class:"btn font-bold", style: "background-color: #22995d;" %></td>
+          </tr>
+        <% end %>
+      </table>
+      <div class="form-row d-flex flex-row-reverse">
+        <div class="col-5 form-group ml-5">
+          <%= link_to "プラットフォームジャンル一覧・追加", admin_platform_genres_path, class:"btn font-bold", style: "background-color: #0b0b33;" %>
+        </div>
+      </div>
+</div>
