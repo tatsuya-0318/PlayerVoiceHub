@@ -6,8 +6,9 @@
     <div class="col-md-9">
       <div class="row">
         <span class="d-flex flex-row">
-          <div class="col-5">
+          <div class="col-6">
             <%= image_tag  @review.user.get_profile_image(300,300) %>
+            <%= @review.user.name %>
           </div>
           <div class="col-7 review-show-text">
             <p>タイトル</p>

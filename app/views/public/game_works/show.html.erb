@@ -79,14 +79,21 @@
                       <%= render "public/reviews/static_rate", review: review %>
                     <% end %>
                   </div>
-                  <div class="form-row">
-                    <%= f.submit "送信する", class: "btn font-bold", style: "background-color: #38ff9c;" %>
-                  </div>
+                  <% if @user.email != "guest@example.com" %>
+                    <div class="form-row">
+                      <%= f.submit "送信する", class: "btn font-bold", style: "background-color: #38ff9c;" %>
+                    </div>
+                  <% else %>
+                    <div class="form-row">
+                      <%#= f.submit "ゲストユーザーはレビュー投稿できません。", class: "btn font-bold", style: "color: #38ff9c;" %>
+                      <%= link_to "ゲストユーザーはレビュー投稿できません", game_works_path, class: "btn font-bold", style: "background-color: #0b0b33;" %>
+                    </div>
+                  <% end %>
                 <% end %>
               </span>
             </div>
       </div>
     </div>
   </div>
-        <p class="d-flex flex-row-reverse"><%= link_to "合計#{@game_work.reviews.count} 個　レビュー一覧へ", game_work_reviews_path(game_work_id: @game_work.id) %></p>
+        <p class="d-flex flex-row-reverse"><%= link_to "合計#{@game_work.reviews.count} 個　レビュー一覧へ", game_work_reviews_path(game_work_id: @game_work.id), class: "btn font-bold ", style: " background-color: #0b0b33;" %></p>
 </div>

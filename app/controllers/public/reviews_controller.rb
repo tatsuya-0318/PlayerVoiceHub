@@ -1,4 +1,5 @@
 class Public::ReviewsController < ApplicationController
+   before_action :ensure_guest_user, only: [:create]
   
   def create
     @game_work = GameWork.find(params[:game_work_id])
@@ -39,4 +40,10 @@ class Public::ReviewsController < ApplicationController
   def review_params
      params.require(:review).permit(:title, :content, :star)
   end
+  
+  def ensure_guest_user
+    if current_user&.email == "guest@example.com"
+      redirect_to game_works_path(current_user), notice: "ゲストユーザーはレビュー投稿できません。"
+    end
+  end  
 end

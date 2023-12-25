@@ -19,6 +19,7 @@ class Public::GameWorksController < ApplicationController
     @review = Review.new
     @genres = Genre.all
     @platform_genres = PlatformGenre.all
+    @user = current_user
   end
   
   private

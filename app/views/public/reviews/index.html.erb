@@ -12,6 +12,7 @@
           <div class="col-8 d-flex flex-column m-5">
             <%= link_to review_path(review) do %>
               <%= image_tag  review.user.get_profile_image(100,100) %>
+              <%= review.user.name %>
               <%= review.title %>
             <% end %>
             <%= review.content %>
