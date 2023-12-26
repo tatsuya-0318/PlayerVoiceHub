@@ -25,6 +25,10 @@ ja:
         title: 作品名
         introduction: 作品詳細説明
         game_work_image: 作品画像
+      game_article:
+        title: 記事名
+        introduction: 記事詳細説明
+        game_article_image: 記事作品画像
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
