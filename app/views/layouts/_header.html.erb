@@ -31,32 +31,32 @@
       <% elsif admin_signed_in? %>
         <div style="border: 2px solid #3838ff; padding: 2px; border-radius: 5px; text-align: center;">
           <div style="background-color: #3838ff; border-radius: 5px;">
-            <li><%= link_to "作品一覧", admin_game_works_path, class: "btn font-bold ", style: " color: #b4bfe0;" %></li>
+            <i class="fa-solid fa-gamepad"><%= link_to "作品一覧", admin_game_works_path, class: "btn font-bold ", style: " color: #b4bfe0;" %></i>
           </div>
         </div>
         <div style="border: 2px solid #3838ff; padding: 2px; border-radius: 5px; text-align: center;">
           <div style="background-color: #3838ff; border-radius: 5px;">
-            <li><%= link_to "作品記事一覧", admin_game_articles_path, class: "btn font-bold ", style: " color: #b4bfe0;" %></li>
+            <i class="fa-solid fa-clipboard"><%= link_to "作品記事一覧", admin_game_articles_path, class: "btn font-bold ", style: " color: #b4bfe0;" %></i>
           </div>
         </div>
         <div style="border: 2px solid #3838ff; padding: 2px; border-radius: 5px; text-align: center;">
           <div style="background-color: #3838ff; border-radius: 5px;">
-            <li><%= link_to "会員一覧", admin_users_path, class: "btn font-bold ", style: " color: #b4bfe0;" %></li>
+            <i class="fa-solid fa-users"><%= link_to "会員一覧", admin_users_path, class: "btn font-bold ", style: " color: #b4bfe0;" %></i>
           </div>
         </div>
         <div style="border: 2px solid #3838ff; padding: 2px; border-radius: 5px; text-align: center;">
           <div style="background-color: #3838ff; border-radius: 5px;">
-            <li><%= link_to "ジャンル一覧", admin_genres_path, class: "btn font-bold ", style: " color: #b4bfe0;" %></li>
+            <i class="fa-solid fa-tags"><%= link_to "ジャンル一覧", admin_genres_path, class: "btn font-bold ", style: " color: #b4bfe0;" %></i>
           </div>
         </div>
         <div style="border: 2px solid #3838ff; padding: 2px; border-radius: 5px; text-align: center;">
           <div style="background-color: #3838ff; border-radius: 5px;">
-            <li><%= link_to "お問い合わせ", admin_game_inquiries_path, class: "btn font-bold ", style: " color: #b4bfe0;" %></li>
+            <i class="fa-solid fa-envelope"><%= link_to "お問い合わせ", admin_game_inquiries_path, class: "btn font-bold ", style: " color: #b4bfe0;" %></i>
           </div>
         </div>
         <div style="border: 2px solid #3838ff; padding: 2px; border-radius: 5px; text-align: center;">
           <div style="background-color: #3838ff; border-radius: 5px;">
-            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn font-bold ", style: " color: #b4bfe0;" %></li>
+            <i class="fa-solid fa-right-to-bracket"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn font-bold ", style: " color: #b4bfe0;" %></i>
           </div>
         </div>
         <% else %>
