@@ -12,6 +12,7 @@ ja:
         email: メールアドレス
         password: パスワード
         sex:
+          one: 性別
           male: 男性
           female: 女性
       game_inquiry:

@@ -14,9 +14,13 @@ class User < ApplicationRecord
   
   validates :name, presence: true
   validates :age, presence: true
-  validates :sex, presence: true
+  #validates :sex, presence: true
+  
+  
   
   enum sex: { male: 0, female: 1 }
+  
+  before_validation :sex_validate
   
   has_one_attached :profile_image
   
@@ -43,4 +47,13 @@ class User < ApplicationRecord
     email == GUEST_USER_EMAIL
   end
   
+  private
+  
+  def sex_validate
+    if sex.nil?
+      errors.add(:sex, 'は必ず選択してください')
+    elsif !User.sexes.keys.include?(self.sex)
+      errors.add(:sex, 'は不正な値です')
+    end
+  end
 end
