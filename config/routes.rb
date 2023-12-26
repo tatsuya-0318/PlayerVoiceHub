@@ -60,8 +60,9 @@ Rails.application.routes.draw do
       resources :platformgenres, only: [:show]
 
         get 'game_inquiries/choice' => 'game_inquiries#choice'
-      resources :game_inquiries, only: [:new, :index, :create] do
+      resources :game_inquiries, only: [:new, :create] do
         get 'game_inquiries/complete', to: 'game_inquiries#complete'
+        get 'game_inquiries/create' => 'game_inquiries#create'
       end
 
       

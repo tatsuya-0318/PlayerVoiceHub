@@ -3,6 +3,16 @@
     <div class="row d-flex justify-content-center">
       <h1>運営に伝えたいことをこちらに記入してください</h1>
     </div>
+    
+    <div class="row d-flex justify-content-center">
+      <% if @report_inquiry.errors.any? %>
+        <ul>
+          <% @report_inquiry.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
   
     <%= form_with model: @report_inquiry, url: report_inquiries_path do |f| %>
       <div class="form-row justify-content-center mt-3 mb-3">

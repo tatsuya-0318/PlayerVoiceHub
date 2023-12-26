@@ -15,7 +15,16 @@
        <h2>※「プラットフォーム」「制作会社」がわからないのでしたら<br>
       「わからない」とご記載しても大丈夫です。</h2>
     </div>
-   
+    
+    <div class="row d-flex justify-content-center">
+      <% if @game_inquiry.errors.any? %>
+        <ul>
+          <% @game_inquiry.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
     
     <%= form_with model: @game_inquiry, url: game_inquiries_path, method: :post do |f| %>
       <div class="form-row">
@@ -55,14 +64,6 @@
           <%= f.submit "投稿", class: "btn font-bold", style: "background-color: #38ff9c;" %>
         </div>
       </div>
-    <% end %>
-    
-    <% if @game_inquiry.errors.any? %>
-      <ul>
-        <% @game_inquiry.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
     <% end %>
   </div>
 </div>

@@ -7,9 +7,18 @@ ja:
   activerecord:
     attributes:
       user:
+        name: ユーザー名
+        age: 年齢
         sex:
           male: 男性
           female: 女性
+      game_inquiry:
+        title: 作品名
+        platform: プラットフォーム
+        production_company: 制作会社
+        introduction: 本文
+      report_inquiry:
+        content: 本文
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻

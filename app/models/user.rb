@@ -12,6 +12,10 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :game_work_bookmarks
   
+  validates :name, presence: true
+  validates :age, presence: true
+  validates :sex, presence: true
+  
   enum sex: { male: 0, female: 1 }
   
   has_one_attached :profile_image
