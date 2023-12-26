@@ -27,8 +27,8 @@ class GameWork < ApplicationRecord
   end
   
   with_options presence: true do
-   validates :title
-   validates :introduction
+   validates :title, presence: true
+   validates :introduction, presence: true
    validates :game_work_image, presence: true
   end
 

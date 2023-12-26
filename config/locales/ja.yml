@@ -21,6 +21,10 @@ ja:
         introduction: 本文
       report_inquiry:
         content: 本文
+      game_work:
+        title: 作品名
+        introduction: 作品詳細説明
+        game_work_image: 作品画像
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻

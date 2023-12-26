@@ -4,6 +4,15 @@
       <h1>ゲーム作品編集画面</h1>
     </div>
   </div>
+  <div class="row d-flex justify-content-center">
+    <% if @game_work.errors.any? %>
+      <ul>
+        <% @game_work.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
       <%= form_with model: @game_work, url: admin_game_work_path(@game_work.id), method: :patch, local:true do |f| %>
         <div class="form-row">
           <div class="col-5 form-group ml-5">

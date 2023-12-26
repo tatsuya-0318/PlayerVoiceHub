@@ -39,6 +39,8 @@ class Admin::GameWorksController < ApplicationController
     if @game_work.update(game_works_params)
       redirect_to admin_game_work_path(@game_work)
     else
+      @genres = Genre.all
+      @platform_genres = PlatformGenre.all
       render :edit
     end
   end

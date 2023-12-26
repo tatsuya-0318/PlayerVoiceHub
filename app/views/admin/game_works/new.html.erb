@@ -4,6 +4,15 @@
       <h1>ゲーム作品新規投稿</h1>
     </div>
   </div>
+  <div class="row d-flex justify-content-center">
+    <% if @game_work.errors.any? %>
+      <ul>
+        <% @game_work.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
     <%= form_with model: @game_work, url: admin_game_works_path, local:true do |f| %>
       <div class="form-row">
         <div class="col-5 form-group ml-5">
