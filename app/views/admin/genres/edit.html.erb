@@ -4,6 +4,15 @@
       <h1>ジャンル編集</h1>
     </div>
   </div>
+  <div class="row d-flex justify-content-center">
+    <% if @genre.errors.any? %>
+      <ul>
+        <% @genre.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
     
     <%= form_with model: @genre, url: admin_genre_path,method: :patch do |f| %>
       <div class="form-row">

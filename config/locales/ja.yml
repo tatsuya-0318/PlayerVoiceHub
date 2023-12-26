@@ -29,6 +29,8 @@ ja:
         title: 記事名
         introduction: 記事詳細説明
         game_article_image: 記事作品画像
+      genre:
+        name: ジャンル名
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
