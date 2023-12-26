@@ -38,9 +38,9 @@ Rails.application.routes.draw do
   end
   
   scope module: :public do
-      root to: "homes#top"
+      root to: "homes#coice"
       get 'homes/about'
-      get 'homes/cioce' => 'homes#coice'
+      get 'homes/top' => 'homes#top'
       
       get '/users/:id/edit', to: 'users#edit',as: 'edit_users'
       patch 'users/withdraw' => 'users#withdraw'
