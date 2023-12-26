@@ -4,6 +4,15 @@
       <h1>プラットホームジャンル編集</h1>
     </div>
   </div>
+  <div class="row d-flex justify-content-center">
+    <% if @platform_genre.errors.any? %>
+      <ul>
+        <% @platform_genre.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
   <%= form_with model: @platform_genre, url: admin_platform_genre_path,method: :patch do |f| %>
     <div class="form-row">
       <div class="col-5 form-group ml-5">

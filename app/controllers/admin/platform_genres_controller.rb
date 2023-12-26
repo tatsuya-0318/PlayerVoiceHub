@@ -17,8 +17,11 @@ class Admin::PlatformGenresController < ApplicationController
 
   def update
     @platform_genre=PlatformGenre.find(params[:id])
-    @platform_genre.update(platform_genre_params)
-    redirect_to admin_platform_genres_path
+    if @platform_genre.update(platform_genre_params)
+      redirect_to admin_platform_genres_path
+    else
+      render :edit
+    end
   end
 
 private
