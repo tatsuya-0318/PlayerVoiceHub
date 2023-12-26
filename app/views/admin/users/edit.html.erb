@@ -4,6 +4,16 @@
     <div class="col-md-9">
 
       <h3 class="m-5"><%= @user.name %>さんの会員情報編集</h3>
+      
+      <div class="row d-flex justify-content-center">
+        <% if @user.errors.any? %>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
     
       <%= form_with model: [:admin, @user], url: admin_user_path(@user.id), method: :patch do |f| %>
         <div class="form-row">
