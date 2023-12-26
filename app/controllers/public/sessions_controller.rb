@@ -5,11 +5,15 @@ class Public::SessionsController < Devise::SessionsController
   def guest_sign_in
     user = User.guest
     sign_in user
-    redirect_to root_path(user), notice: "guestuserでログインしました。"
+    redirect_to homes_top_path(user), notice: "guestuserでログインしました。"
   end
   
   def after_sign_out_path_for(resource)
-    homes_cioce_path
+    root_path
+  end
+  
+  def after_sign_in_path_for(resource)
+    homes_top_path
   end
 
   # GET /resource/sign_in
