@@ -2,6 +2,9 @@ class Public::ReviewsController < ApplicationController
    before_action :ensure_guest_user, only: [:create]
   
   def create
+    @genres = Genre.all
+    @platform_genres = PlatformGenre.all
+    @user = current_user
     @game_work = GameWork.find(params[:game_work_id])
     @review = current_user.reviews.new(review_params)
     @review.game_work_id = @game_work.id

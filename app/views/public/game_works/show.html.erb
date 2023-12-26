@@ -39,7 +39,16 @@
               <% end %>
               <p>レビュー件数：<%= @game_work.reviews.count %></p>
             </div>
-            <div class="row mb-5">
+            <div class="row d-flex justify-content-center m-5">
+              <% if @review.errors.any? %>
+                <ul>
+                  <% @review.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              <% end %>
+            </div>
+            <div class="row mb-5 mt-5">
               <span class="mb-5">
                 <%= form_with model: [@game_work, @review], url: game_work_reviews_path(@game_work), local: true do |f| %>
                   <div class="form-row">
@@ -56,7 +65,6 @@
                     <% if @review.id.nil? %>
                       <div class="form-group" id="star">
                         <p>評価</p>
-                        <%= f.label :star %>
                         <%= f.hidden_field :star, id: :review_star, class: 'form-control' %>
                         <div id="post_raty"></div>
                       </div>

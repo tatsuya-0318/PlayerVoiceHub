@@ -34,6 +34,10 @@ ja:
         name: ジャンル名
       platform_genre:
         name: プラットフォームジャンル名
+      review:
+        title: タイトル
+        content: レビュー内容
+        star: 評価
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
